@@ -10,6 +10,10 @@ const BlogSchema = new Schema({
     type: String,
     required: true,
   },
+  short_desc: {
+    type: String,
+  },
+  images : [String]
 });
 
 module.exports = mongoose.model("Blog", BlogSchema);

@@ -10,6 +10,9 @@ const ProjectSchema = new Schema({
     type: String,
     required: true,
   },
+  short_desc: {
+    type: String,
+  },
   githubLink: {
     type: String,
   },
