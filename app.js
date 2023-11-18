@@ -6,6 +6,8 @@ const connectDB = require("./config/db");
 const dotenv = require("dotenv");
 
 const viewsRouter = require("./routes/viewsRoutes");
+const blogsRouter = require("./routes/blogsRoutes");
+const projectsRouter = require("./routes/projectsRoutes");
 
 // const newsRouter = require("./routes/gymkhana/newsRoutes");
 // const secretaryRouter = require("./routes/gymkhana/secretaryRoutes");
@@ -34,6 +36,8 @@ connectDB();
 
 // ALL ROUTES
 app.use("/", viewsRouter);
+app.use("/api/projects", projectsRouter);
+app.use("/api/blogs", blogsRouter);
 // app.use("/gymkhana/news", newsRouter);
 // app.use("/gymkhana/hostels", hostelsRouter);
 // app.use("/gymkhana/secretary", secretaryRouter);

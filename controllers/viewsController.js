@@ -1,5 +1,4 @@
 
-
 exports.home = async (req, res) => {
     try {
         context = {
@@ -21,3 +20,4 @@ exports.gymkhana=async(req,res)=>{
         res.status(400).send({Error:err});
     }
 }
+
