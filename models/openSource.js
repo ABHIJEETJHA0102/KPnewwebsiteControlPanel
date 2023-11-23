@@ -7,7 +7,7 @@ const openSourceModel = mongoose.Schema({
     },
     Event:{
         type:String,
-        // required: [true,"Event name required"],
+        required: [true,"Event name required"],
     },
     year:{
         type:Number,
@@ -26,9 +26,15 @@ const openSourceModel = mongoose.Schema({
         required: [true," Github link required"],
         unique:true,
     },
+    linkedin_link:{
+        type:String,
+        required: [true," LinkedIn link required"],
+        unique:true,
+    },
     fb_link:{
         type:String,
         // required: [true," Facebook link required"],
+        unique:true;
     },
 });
 
