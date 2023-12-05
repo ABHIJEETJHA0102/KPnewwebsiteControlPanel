@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 const viewsRouter = require("./routes/viewsRoutes");
 const blogsRouter = require("./routes/blogsRoutes");
 const projectsRouter = require("./routes/projectsRoutes");
+const openSource_routes = require("./routes/openSourceRoutes");
 
 // const newsRouter = require("./routes/gymkhana/newsRoutes");
 // const secretaryRouter = require("./routes/gymkhana/secretaryRoutes");
@@ -38,6 +39,7 @@ connectDB();
 app.use("/", viewsRouter);
 app.use("/api/projects", projectsRouter);
 app.use("/api/blogs", blogsRouter);
+app.use("/openSource/", openSource_routes);
 // app.use("/gymkhana/news", newsRouter);
 // app.use("/gymkhana/hostels", hostelsRouter);
 // app.use("/gymkhana/secretary", secretaryRouter);
