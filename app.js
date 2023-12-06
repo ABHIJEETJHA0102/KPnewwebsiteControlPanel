@@ -9,6 +9,8 @@ const viewsRouter = require("./routes/viewsRoutes");
 const blogsRouter = require("./routes/blogsRoutes");
 const projectsRouter = require("./routes/projectsRoutes");
 const openSource_routes = require("./routes/openSourceRoutes");
+const ICPC_routes = require("./routes/ICPCRoutes");
+const Hof_routes = require("./routes/HofRoutes");
 
 // const newsRouter = require("./routes/gymkhana/newsRoutes");
 // const secretaryRouter = require("./routes/gymkhana/secretaryRoutes");
@@ -40,6 +42,8 @@ app.use("/", viewsRouter);
 app.use("/api/projects", projectsRouter);
 app.use("/api/blogs", blogsRouter);
 app.use("/openSource/", openSource_routes);
+app.use("/ICPC/", ICPC_routes);
+app.use("/Hof/", Hof_routes);
 // app.use("/gymkhana/news", newsRouter);
 // app.use("/gymkhana/hostels", hostelsRouter);
 // app.use("/gymkhana/secretary", secretaryRouter);
