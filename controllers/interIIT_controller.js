@@ -3,7 +3,7 @@ const interIIT = require("../models/interIIT");
 const getAllitems = async(req, res) => {
     try {
         const myData = await interIIT.find(req.query);
-        res.status(200).json({ data: myData });
+        res.status(200).json( myData );
     } catch (err) {
         res.status(400).json({ error: 'Error: ' + err });
     }
@@ -20,7 +20,7 @@ const deleteOneItem = async(req, res) => {
 const getByID = async(req, res) => {
     try {
         const find_entry=await interIIT.findById(req.params.id);
-        res.status(200).json({ data: find_entry });
+        res.status(200).json( find_entry );
     } catch (err) {
         res.status(400).json({ error: 'Error: ' + err });
     }
@@ -30,7 +30,7 @@ const addOneItem = async(req, res) => {
     const newListEntry = new interIIT(req.body);
     try {
         const savedListEntry = await newListEntry.save();
-        res.status(200).json({ message: "Saved List Entry", data: savedListEntry });
+        res.redirect("/add-user");
     } catch (err) {
         res.status(400).json({ error: 'Error: ' + err });
     }
@@ -39,7 +39,7 @@ const addOneItem = async(req, res) => {
 const updateByID = async(req, res) => {
     try {
         const updatedListEntry = await interIIT.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.status(200).json({ message: "Updated List Entry", data: updatedListEntry });
+        res.status(200).json(updatedListEntry );
     } catch (err) {
         res.status(400).json({ error: 'Error: ' + err });
     }
