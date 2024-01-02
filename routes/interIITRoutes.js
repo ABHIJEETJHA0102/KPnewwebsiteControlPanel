@@ -1,11 +1,18 @@
 const express = require("express");
-const router = express.Router();
+const route = express.Router();
+
+const services=require("../services/render");
+
+route.get("/",services.homeRoutes); 
+route.get("/add-user",services.add_user);
+route.get("/update-user",services.update_user);
 
 const { getAllitems, deleteOneItem, addOneItem, getByID, updateByID } = require("../controllers/interIIT_controller");
-router.route("/getAllItems").get(getAllitems);
-router.route("/getByID/:id").get(getByID);
-router.route("/updateByID/:id").put(updateByID);
-router.route("/deleteOneItem/:id").delete(deleteOneItem);
-router.route("/addOneItem").post(addOneItem);
 
-module.exports = router;
+route.post("/api/addOneItem",addOneItem);
+route.get("/api/getAllItems",getAllitems);
+route.get("/api/getByID/:id",getByID);
+route.put("/api/updateByID/:id",updateByID);
+route.delete("/api/deleteOneItem/:id",deleteOneItem);
+
+module.exports = route;
