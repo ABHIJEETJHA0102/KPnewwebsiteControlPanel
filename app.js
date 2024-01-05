@@ -11,6 +11,7 @@ const projectsRouter = require("./routes/projectsRoutes");
 const openSource_routes = require("./routes/openSourceRoutes");
 const ICPC_routes = require("./routes/ICPCRoutes");
 const Hof_routes = require("./routes/HofRoutes");
+const interIIT_routes=require("./routes/interIITRoutes");
 
 // const newsRouter = require("./routes/gymkhana/newsRoutes");
 // const secretaryRouter = require("./routes/gymkhana/secretaryRoutes");
@@ -29,10 +30,13 @@ app.set("view engine", "ejs");
 
 // SETTING DEFAULT VIEWS FOLDER
 app.set("views", path.join(__dirname, "views"));
+app.set('views', path.join(__dirname, 'views', 'interIITviews'));
 
 // SERVING STATIC FILES
 app.use(express.static(`${__dirname}/public`));
-
+app.use("/css",express.static(path.resolve(__dirname,"assets/CSS")))
+app.use("/interIIT/css",express.static(path.resolve(__dirname,"assets/CSS")))
+app.use("/js",express.static(path.resolve(__dirname,"assets/js")))
 dotenv.config({ path: "./config/config.env" });
 // DATABASE CONNECTION
 connectDB();
@@ -44,6 +48,8 @@ app.use("/api/blogs", blogsRouter);
 app.use("/openSource/", openSource_routes);
 app.use("/ICPC/", ICPC_routes);
 app.use("/Hof/", Hof_routes);
+app.use("/interIIT",interIIT_routes);
+
 // app.use("/gymkhana/news", newsRouter);
 // app.use("/gymkhana/hostels", hostelsRouter);
 // app.use("/gymkhana/secretary", secretaryRouter);
