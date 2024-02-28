@@ -18,6 +18,7 @@ const ProjectSchema = new Schema({
   },
   buttonText: {
     type: String,
+    default: "View on GitHub",
   },
 });
 

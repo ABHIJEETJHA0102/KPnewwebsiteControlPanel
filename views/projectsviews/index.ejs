@@ -1,0 +1,27 @@
+<%- include('Include/_header') %>
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <a href="/projects/add-project" class="" border-shadow>
+                <span class="text-gradient">New Project <i class="fa-solid fa-user"></i></span>
+            </a>
+        </div>
+            <form action="/projects" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Github Link</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('Include/_show')%>
+                    </tbody>
+                </table>
+            </form>
+        
+    </div>
+</main>
+<%- include('Include/_footer')%>

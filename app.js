@@ -31,7 +31,6 @@ app.set("view engine", "ejs");
 
 // SETTING DEFAULT VIEWS FOLDER
 app.set("views", path.join(__dirname, "views"));
-app.set('views', path.join(__dirname, 'views', 'interIITviews'));
 
 // SERVING STATIC FILES
 app.use(morgan(`tiny`));
@@ -39,6 +38,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static(`${__dirname}/public`));
 app.use("/css",express.static(path.resolve(__dirname,"assets/CSS")))
 app.use("/interIIT/css",express.static(path.resolve(__dirname,"assets/CSS")))
+app.use("/projects/css",express.static(path.resolve(__dirname,"assets/CSS")))
 app.use("/js",express.static(path.resolve(__dirname,"assets/js")))
 dotenv.config({ path: "./config/config.env" });
 // DATABASE CONNECTION
@@ -46,8 +46,8 @@ connectDB();
 
 // ALL ROUTES
 app.use("/", viewsRouter);
-app.use("/api/projects", projectsRouter);
-app.use("/api/blogs", blogsRouter);
+app.use("/projects", projectsRouter);
+app.use("/blogs", blogsRouter);
 app.use("/openSource/", openSource_routes);
 app.use("/ICPC/", ICPC_routes);
 app.use("/Hof/", Hof_routes);
@@ -67,10 +67,10 @@ app.all("*", (req, res) => {
 });
 
 // START EXPRESS APP
-port = process.env.PORT || 9000;
+port = process.env.PORT || 5000;
 app.listen(port, (err) => {
     if (err) throw err;
     console.log(`App listening on port : ${port} 
-    http://localhost:9000
+    http://localhost:5000
     `);
 });
