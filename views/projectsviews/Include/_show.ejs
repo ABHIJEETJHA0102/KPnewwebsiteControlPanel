@@ -1,0 +1,18 @@
+<% for(var i = 0; i < projects.length; i++) { %>
+
+<tr>
+    <td><%= projects[i].title %></td>
+    <td><%= projects[i].description %></td>
+    <td>
+        <a target="_blank" href="<%= projects[i].githubLink %>"><i class="fa-brands fa-github"></i></a>
+    </td>
+    <td style="display: flex;flex-direction: column;gap: 0.5rem;">
+        <a href="/projects/update-project?id=<%=projects[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="border-shadow btn delete" data-id=<%= projects[i]._id%>>
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+</tr>
+<% } %>

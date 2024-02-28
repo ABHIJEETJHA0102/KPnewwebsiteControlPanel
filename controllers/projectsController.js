@@ -13,10 +13,18 @@ exports.getProjects = async (req,res)=>{
       }
 }
 
+exports.getByID = async(req, res) => {
+    try {
+        const find_project=await Project.findById(req.params.id);
+        res.status(200).json( find_project );
+    } catch (err) {
+        res.status(400).json({ error: 'Error: ' + err });
+    }
+};
+
 exports.addProjects = async (req,res)=>{
     try {
         const { title, description, githubLink, buttonText,short_desc } = req.body;
-
         const project = new Project({
             title, description, githubLink, buttonText,short_desc
         })
@@ -39,11 +47,12 @@ exports.updateProjects = async (req,res)=>{
         if (githubLink) { newProject.githubLink = githubLink };
         if (buttonText) { newProject.buttonText = buttonText };
         if (short_desc) { newProject.short_desc = short_desc };
-        
         let project = await Project.findById(req.params.id);
+
         if (!project) { return res.status(404).send("Not Found") }
         
         project = await Project.findByIdAndUpdate(req.params.id, { $set: newProject }, { new: true })
+
         res.json({ project });
     } catch (error) {
         console.error(error.message);

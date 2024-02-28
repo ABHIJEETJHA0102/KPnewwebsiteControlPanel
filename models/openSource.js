@@ -34,7 +34,7 @@ const openSourceModel = mongoose.Schema({
     fb_link:{
         type:String,
         // required: [true," Facebook link required"],
-        unique:true;
+        unique:true
     },
 });
 
