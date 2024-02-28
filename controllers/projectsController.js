@@ -29,8 +29,7 @@ exports.addProjects = async (req,res)=>{
             title, description, githubLink, buttonText,short_desc
         })
         const savedProject = await project.save()
-
-        res.json(savedProject)
+        res.redirect("/projects/add-project");
 
     } catch (error) {
         console.error(error.message);
